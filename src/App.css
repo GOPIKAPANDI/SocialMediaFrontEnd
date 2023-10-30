@@ -12,4 +12,39 @@
   --video: #4A4EB7;
   --location: #EF5757;
 --shedule: #E1AE4A;
+} 
+
+.App{
+  overflow: hidden;
+  color: var(--black); 
+  background-color: #f3f3f3;
+  padding: 1rem; 
+}
+
+.blur{
+  position: absolute;
+  width: 22rem; 
+  height: 14rem;
+  border-radius: 50%; 
+  background-color: #a6ddf0; 
+  filter: blur(72px);
+}
+.button{
+  display: flex;
+  color: white;
+  background: var(--buttonBg);
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem; 
+  border: none;
+  transition: all 100ms ease-out;
+}
+.button:hover{
+  cursor: pointer;
+  color: var(--orange);
+  background: transparent;
+  border: 2px solid orange;
+}
+::-webkit-scrollbar{
+  display: none;
 }
