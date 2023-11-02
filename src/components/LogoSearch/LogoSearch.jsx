@@ -1,5 +1,7 @@
 import React from 'react'
-import Logo from 'D:/SOCIALMEDIA/SocialMedia-Starter/src/img/logo.png'
+// import Logo from 'D:/SOCIALMEDIA/SocialMedia-Starter/src/img/logo.png'
+
+import Logo from '../../img/logo.png'
 import {UilSearch} from '@iconscout/react-unicons'
 import './LogoSearch.css'
 

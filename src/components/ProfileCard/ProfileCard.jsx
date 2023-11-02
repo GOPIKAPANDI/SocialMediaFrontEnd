@@ -1,6 +1,6 @@
 import React from 'react'
-import Cover from 'D:/SOCIALMEDIA/SocialMedia-Starter/src/img/cover.jpg' 
-import Profile from 'D:/SOCIALMEDIA/SocialMedia-Starter/src/img/profileImg.jpg' 
+import Cover from '../../img/cover.jpg' 
+import Profile from '../../img/profileImg.jpg'  
 import './ProfileCard.css' 
 
 const ProfileCard = () => {
