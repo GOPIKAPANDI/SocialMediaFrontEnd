@@ -1,10 +1,12 @@
-import {
+// Paste this common code for all project as ReduxStore  
+// This ReduxStore makes the reducer persistent 
+import{     
     legacy_createStore as createStore,
     applyMiddleware,
     compose,
-  } from "redux";
+  } from "redux";       
   import thunk from "redux-thunk";
-  import { reducers } from "../reducers";
+  import {reducers} from "../reducers"; 
   
   function saveToLocalStorage(store) {
     try {
@@ -28,7 +30,11 @@ import {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const persistedState = loadFromLocalStorage();
   
-  const store = createStore(reducers, persistedState, composeEnhancers(applyMiddleware(thunk)));
+  const store = createStore(
+    reducers, 
+    persistedState, 
+    composeEnhancers(applyMiddleware(thunk))
+    );
   
   store.subscribe(() => saveToLocalStorage(store.getState()));
   

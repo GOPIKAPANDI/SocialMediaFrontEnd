@@ -18,10 +18,12 @@
     width: 100%;
 }
 .ProfileImages>img:nth-of-type(2){
-    width: 6rem;
+    width: 4rem;
+    height: 4.5rem;
+    object-fit: cover;
     border-radius: 50%;
     position: absolute;
-    bottom: -3rem;/*half img inside,half img outside*/ 
+    bottom: -2rem;/*half img inside,half img outside*/ 
     box-shadow: var(--profileShadow); 
 }
 .ProfileName{

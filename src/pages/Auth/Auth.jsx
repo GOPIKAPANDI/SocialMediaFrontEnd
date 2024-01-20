@@ -6,20 +6,21 @@ import { logIn, signUp } from '../../actions/AuthAction.js'
 
 const Auth = () => { 
   const dispatch = useDispatch(); 
-  const loading = useSelector((state)=>state.authReducer.loading); //to get loading symbol until auth is loading 
+  const loading = useSelector((state)=>state.authReducer.loading); 
+  //to get loading symbol until auth is loading 
   const [isSignUp , setIsSignUp] = useState(false)  
   const [data , setData] = useState({firstname: "",lastname: "",username: "",password: "",confirmpass: ""}) 
   const [confirmPass , setConfirmPass] = useState(true);    
   
   console.log(loading);  
+  
   const handleChange=(e)=>{ 
       // single common func for all  
       setData({...data ,[e.target.name]:e.target.value}) 
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { 
     e.preventDefault(); 
-
     if(isSignUp){
       data.password === data.confirmpass ? dispatch(signUp(data)) : setConfirmPass(false); 
     }
@@ -42,7 +43,7 @@ const Auth = () => {
         <div className="a-left">
             <img src={Logo} alt='logo'/>
             <div className='Webname'>
-                <h1>GD-BE Media</h1> 
+                <h1>GDN Media</h1>  
                 <h6>Explore the ideas throughout the world</h6>
 
             </div>
@@ -52,43 +53,77 @@ const Auth = () => {
 
         <div className="a-right">
           <form className="infoForm authForm" onSubmit={handleSubmit}> 
-            <h3>{isSignUp ? "Register" : "LogIn"}</h3>  
+            <h3>{isSignUp ? "Sign Up" : "LogIn"}</h3>   
 
             {isSignUp &&  
-               <div>
-                <input required type='text' placeholder='First Name' className='infoInput' name='firstname'onChange={handleChange} value={data.firstname}/>
-                <input required type='text' placeholder='Last Name' className='infoInput' name='lastname' onChange={handleChange} value={data.lastname}/>
-               </div>
+              <div>
+                <input required
+                  type='text'
+                  placeholder='First Name'
+                  className='infoInput'
+                  name='firstname'
+                  onChange={handleChange} 
+                  value={data.firstname}
+                 />
+                <input required 
+                  type='text' 
+                  placeholder='Last Name' 
+                  className='infoInput' 
+                  name='lastname' 
+                  onChange={handleChange} 
+                  value={data.lastname}
+                />
+              </div>
             }  
             
             <div>
-              <input required type="text" placeholder='Username' className="infoInput" name='username' onChange={handleChange} value={data.username}/>
+              <input required 
+                type="text" 
+                placeholder='Username' 
+                className="infoInput" 
+                name='username' 
+                onChange={handleChange} 
+                value={data.username}
+              />
             </div> 
             <div>
-              <input required type='password' placeholder='Password' className='infoInput' name='password' onChange={handleChange} value={data.password}/>
-              { 
-                isSignUp &&           
-                    <input type='password' placeholder='Confirm Password' className='infoInput' name='confirmpass'onChange={handleChange} value={data.confirmPass}/>
+              <input required 
+                type='password' 
+                placeholder='Password' 
+                className='infoInput' 
+                name='password' 
+                onChange={handleChange} 
+                value={data.password}
+              />
+              {isSignUp &&           
+                  <input 
+                    type='password' 
+                    placeholder='Confirm Password' 
+                    className='infoInput' 
+                    name='confirmpass'
+                    onChange={handleChange} 
+                    value={data.confirmpass}
+                  />
               }
             </div>
 
             <span style={{ display : confirmPass ? "none" : "block" , 
             color: "red",fontSize: '12px',alignSelf : "flex-end",marginRight : "5px"}}>
-
-                *  Confirm password doesn't match  
+                  *  Confirm password doesn't match  
             </span>
             
             <div> 
-              <span style={{fontSize: '12px', cursor: 'pointer'}} onClick={ ()=>{setIsSignUp(!isSignUp); resetForm(); }}> 
+              <span style={{fontSize: '12px', cursor: 'pointer'}} onClick={()=>{setIsSignUp(!isSignUp); resetForm(); }}> 
                 {isSignUp ? "Already have an account Login !" : "Don't have an account? Sign Up"} 
               </span>
             </div>
+
             <button className='button infoButton' type='submit' disabled={loading}>
               {loading? "Loading..." : isSignUp ? "Sign Up" : "Log In" }  
             </button> 
           </form>
         </div>
-        {/* <SignUp/> */}
+        
     </div>
   )
 }

@@ -5,6 +5,7 @@ import Profile from "./pages/Profile/Profile";
 import Home from "./pages/home/Home";
 
 import {Routes , Route , Navigate} from 'react-router-dom'
+
 function App() {
   const user = useSelector((state)=>state.authReducer.authData)
   return (
@@ -17,13 +18,19 @@ function App() {
              element = { user ? <Navigate to ="home"/> : <Navigate to = 'auth' />}
           />  
           <Route 
-             path="/home" 
+             path="/home"
+            //  element = {<Home/>} 
              element = { user ? <Home/> : <Navigate to = '../auth' /> }
           />
           <Route
             path="/auth"
+            // element = {<Auth/>}
             element = { user ? <Navigate to = '../home' /> : <Auth/> }
           /> 
+          <Route
+            path="/profile/:id" 
+            element = {user ? <Profile/> : <Navigate to = "../auth"/> } 
+          />
         </Routes>
         {/* <Home/> */}
         {/* <Profile/> */}
