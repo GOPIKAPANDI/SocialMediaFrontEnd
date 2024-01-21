@@ -29,16 +29,3 @@ export const unFollowUser = (id,data) => async(dispatch)=>{
     dispatch({type: "UNFOLLOW_USER"}) 
     UserApi.unFollowUser(id,data)
 }
-// export const unFollowUser = (id, data) => async (dispatch) => {
-//     try {
-//         const response = await UserApi.unFollowUser(id, data);
-//         if (response.data !== "User is already followed by you") {
-//             dispatch({type: "UNFOLLOW_USER"}) 
-//         } else {
-//             // console.log("User is already followed by you");
-//             // Handle the case where the user is already followed
-//         }
-//     } catch (error) {
-//         console.error("Error following user:", error);
-//     }
-// };
