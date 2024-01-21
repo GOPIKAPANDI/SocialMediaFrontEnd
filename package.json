@@ -2,7 +2,7 @@
   "name": "starter",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://socialmediarestapi1.onrender.com",
+  "proxy": "https://socialmediarestapi3.onrender.com",
   "dependencies": {
     "@iconscout/react-unicons": "^1.1.6",
     "@mantine/core": "^4.2.1",
