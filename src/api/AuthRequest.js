@@ -1,6 +1,6 @@
 import axios from "axios" 
 
-const API = axios.create({baseURL : "https://socialmediarestapi4.onrender.com"}); 
+const API = axios.create({baseURL : "https://socialmediarestapi5.onrender.com"}); 
 
 
 export const logIn = (formData) => API.post('/auth/login',formData)   
